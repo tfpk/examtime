@@ -1,0 +1,45 @@
+body {
+    background: black;
+    color: white;
+    text-align: center;
+    font-size: 3em;
+    font-family: 'Roboto', sans-serif;
+}
+h1 {
+    margin: 20px;
+}
+h2 {
+    margin: 20px;
+}
+h3 {
+    font-size: 1.2em;
+    margin: 15px;
+}
+
+#header {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+
+#scroll {
+    padding-left: 25%;
+    padding-right: 25%;
+}
+
+#footer  {
+    font-size: 1.5em;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.row {
+    clear: both;
+}
+.name {
+    float: left;
+}
+.edit {
+    float: right;
+}

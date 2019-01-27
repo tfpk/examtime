@@ -1,0 +1,43 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Exam Timer</title>
+  <meta name="description" content="Exam Timer for CSE">
+  <meta name="author" content="tfpk">
+
+  <link rel="stylesheet" href="css/index.css?v=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+
+<body>
+    <div id="header">
+        <h2 id="info" contenteditable="True">Exam Info</h2>
+        <h2 id="name" contenteditable="True"><b>Exam Name</b></h2>
+    </div>
+    <div id="scroll">
+        <div onclick="$('#reading').focus()" class="row">
+            <h3  class="name">READING: </h3>
+            <h3 id="reading" class="edit" contenteditable="True">. .</h3>
+        </div>
+        <div onclick="$('#start').focus()" class="row">
+            <h3 class="name">START: </h3>
+            <h3 id="start" class="edit" contenteditable="True">. .</h3>
+        </div>
+        <div onclick="$('#end').focus()" class="row">
+            <h3 class="name">END: </h3>
+            <h3 id="end" class="edit" contenteditable="True">. .</h3>
+        </div>
+    </div>
+    <div id="footer">
+        <h2 id="countdown">%d:%d:%d</h2>
+        <h1 id="time">%d:%d:%d</h1>
+    </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+  <script src="js/scripts.js"></script>
+  <script>startTime(); set_edits(); restore_edits()</script>
+</body>
+</html>

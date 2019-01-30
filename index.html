@@ -8,11 +8,13 @@
   <meta name="description" content="Exam Timer for CSE">
   <meta name="author" content="tfpk">
 
-  <link rel="stylesheet" href="css/index.css?v=1.0">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/popup.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 
 <body>
+    <img id="settings_open" src="images/more_vert.png"/>
     <div id="header">
         <h2 id="info" contenteditable="True">Exam Info</h2>
         <h2 id="name" contenteditable="True"><b>Exam Name</b></h2>
@@ -36,8 +38,20 @@
         <h1 id="time">%d:%d:%d</h1>
     </div>
 
+  <div id="settings_modal" class="modal">
+
+    <div class="modal-content">
+      <span id="settings_close" class="close">&times;</span>
+      <label for="show_seconds">Show Seconds in clock:</label><input class="settings_check" id="show_seconds" type="checkbox"/><br/>
+      <label for="show_countdown">Show Countdown:</label><input class="settings_check" id="show_countdown" type="checkbox"/><br/>
+    </div>
+
+</div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
   <script src="js/scripts.js"></script>
+  <script src="js/popup.js"></script>
+  <script src="js/settings.js"></script>
   <script>startTime(); set_edits(); restore_edits()</script>
 </body>
 </html>

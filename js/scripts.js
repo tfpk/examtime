@@ -18,21 +18,22 @@ function startTime() {
     var for_regex = $("#end").html();
     var regex = /\d{1,2}:\d{1,2}/;
     var match = for_regex.match(regex);
+    var at_zero = 0;
     var past_end = 0;
     var positions = ["left.", "past end."];
     if (match !== null && get_setting('show_countdown')){
         match = match[0].split(':');
         endh = parseInt(match[0]);
         endm = parseInt(match[1]);
+        
+        diffm = (endh - h) * 60  + (endm - m);
+        if (diffm <= 0) past_end = 1;
+        if (diffm == 0) at_zero = 1;
+        diffh = (diffm / 60) | 0;
+        diffm -= diffh * 60;
+        diffm = Math.abs(diffm);
+        diffh = Math.abs(diffh);
 
-        diffh = (endh + 24 - h) % 24;
-        diffm = ((endm + 60 - m) % 60);
-        if (diffh < 0 && diffh + diffm != 0) {
-            diffm = 59 - diffm;
-            past_end = 1;
-        } else {
-            if (endm - m < 0) diffh -= 1;
-        }
         if (past_end) {
             var set_color = "yellow"
             if (s % 2) set_color = "red"
@@ -44,11 +45,13 @@ function startTime() {
         } else {
             document.getElementById('countdown').style = 'color: white';
         }
-        document.getElementById('countdown').innerHTML = checkTime(diffh) + ":" + checkTime(diffm) + " " + positions[past_end];
+        var text =  checkTime(diffh) + ":" + checkTime(diffm) + " " + positions[past_end];
+        if (at_zero) text = "Time Expired"
+        document.getElementById('countdown').innerHTML = text;
     } else {
         document.getElementById('countdown').innerHTML = ""
     }
-    var t = setTimeout(startTime, 500);
+    var t = setTimeout(startTime, 250);
 }
 
 function checkTime(i) {
